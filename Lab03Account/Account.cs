@@ -10,7 +10,7 @@ namespace Lab03Account
     {
         private int accNum;
         private string name;
-        private double balance;
+        protected double balance;
 
         public Account(int ac, string name, double bal)
         {
@@ -45,14 +45,34 @@ namespace Lab03Account
 
         public bool transfer(Account a, double amt)
         {
-            if (a.deposit(amt) && withdraw(amt))
+            
+            if (withdraw(amt))
             {
-                return true;
+                if (a.deposit(amt))
+                {
+                    return true;
+                }
+                else
+                {
+                    deposit(amt);
+                    return false;
+                }
             }
             else
             {
-                return true;
+                return false;
             }
+        }
+
+        override
+        public string ToString()
+        {
+            return accNum + " " + name+" " + balance;
+        }
+
+        public int getAccountNumber()
+        {
+            return accNum;
         }
 
 

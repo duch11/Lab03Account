@@ -10,23 +10,38 @@ namespace Lab03Account
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
 
-            double amount = 2.8d;
-            Console.WriteLine("Doing a transfer of " + amount + "!");
-            Account[] accounts = new Account[2];
-            accounts[0] = new Account(1, "account one", 20.2);
-            accounts[1] = new Account(2, "account two", 10f);
-            foreach(Account a in accounts)
-            {
-                Console.WriteLine(a);
-            }
-
-
+            AccountManager manager = new AccountManager(12, 10);
+            Console.WriteLine(manager);
             Console.ReadKey();
+            Console.Clear();
+            manager.addAccount("Trying", 20.2);
+            Console.WriteLine(manager);
+            Console.ReadKey();
+            Console.Clear();
+            manager.deposit(1, 20);
+            Console.WriteLine(manager);
+            Console.ReadKey();
+            Console.Clear();
+            manager.deposit(2, 300);
+            Console.WriteLine(manager);
+            Console.ReadKey();
+            Console.Clear();
+            manager.withdraw(2, 50);
+            Console.WriteLine(manager);
+            Console.ReadKey();
+            Console.Clear();
+            manager.transfer(2, 1, 300);
+            Console.WriteLine(manager);
+            Console.ReadKey();
+            Console.Clear();
+            manager.transfer(2, 1, 200);
+            Console.WriteLine(manager);
+            Console.ReadKey();
+            Console.Clear();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            //MAKE CHECKING ACCOUNT AND USE OVERRIDDEN WITHDRAW METHOD!!
+            Console.ReadKey();
         }
     }
 }
